@@ -1,4 +1,4 @@
-# anti-phishing
+# Anti-Phishing
 Leeds Beckett University - Production Project 
 
 This project aims to create an anti-phishing Google Chrome Extension. When a user uses Gmail,
