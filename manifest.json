@@ -2,6 +2,7 @@
   "name": "Anti-Phisher",
   "description": "Production Project",
   "version": "1.0",
+  "author": "Alexander D Hughes",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
