@@ -1,0 +1,32 @@
+html {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: #FFFFFF;
+  margin: 0;
+}
+/* HEADER CSS */
+header {
+  border: black;
+  height: 80px;
+  width: 100%;
+  text-align: center;
+  color: rgba(10, 23, 23, 0.7);
+  background-color: #f2f2ed;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 900;
+  font-size: 17px;
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+#mainTitleDiv {
+  margin-bottom: -11px;
+}
+
+/* BODY CSS */
+#mainBody {
+  width: 300px;
+  height: 300px;
+  background: #ffffff;
+  margin: 0;
+}

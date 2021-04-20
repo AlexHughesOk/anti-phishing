@@ -1,15 +1,19 @@
 {
   "name": "Anti-Phisher",
-  "description": "Production Project",
+  "description": "Leeds Beckett - Production Project",
   "version": "1.0",
   "author": "Alexander D Hughes",
   "manifest_version": 3,
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "js/background.js"
   },
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": [
+    "storage", 
+    "activeTab", 
+    "scripting",
+    "<all_urls>"],
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "html/popup.html",
     "default_icon": {
       "16": "/assets/Logo16.png",
       "32": "/assets/Logo32.png",
@@ -23,5 +27,5 @@
     "48": "/assets/Logo48.png",
     "128": "/assets/Logo128.png"
   },
-  "options_page": "options.html"
+  "options_page": "html/infoPage.html"
 }
