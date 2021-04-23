@@ -1,4 +1,9 @@
 # Anti-Phishing
+<p align="center">
+<a href="https://github.com/Snailclimb/JavaGuide" target="_blank">
+	<img src="https://raw.githubusercontent.com/AlexHughesOk/anti-phishing/main/assets/Logo256.png" width=""/>
+</a>
+</p>
 Leeds Beckett University - Production Project 
 
 This project aims to create an anti-phishing Google Chrome Extension. When a user uses Gmail,
