@@ -10,8 +10,7 @@
   "permissions": [
     "storage", 
     "activeTab", 
-    "scripting",
-    "<all_urls>"],
+    "scripting"],
   "action": {
     "default_popup": "html/popup.html",
     "default_icon": {
