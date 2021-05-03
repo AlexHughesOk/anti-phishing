@@ -89,19 +89,16 @@ label:active:after {
 }
 
 /* FOOTER CSS */ 
-#grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  padding-top: 15px;
-  padding-left: 25px;
-  padding-right: 25px;
-}
 #grid-item {
   display: block;
     margin-left: auto;
     margin-right: auto;
-
-  font-size: 30px;
   text-align: center;
+}
+img#grid-item{
   width: 35px;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
