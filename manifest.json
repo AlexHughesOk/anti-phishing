@@ -7,10 +7,27 @@
   "background": {
     "service_worker": "js/background.js"
   },
+  "content_scripts": [
+    {
+      "js": [ 
+        "jquery.min.js"
+      ],
+      "matches": [
+        "*://outlook.office.com/*",
+        "*://outlook.live.com/*",
+        "*://outlook.office365.com/*",
+        "*//mail.google.com/*"
+      ]
+    }
+  ],
   "permissions": [
     "storage", 
     "activeTab", 
-    "scripting"],
+    "scripting",
+    "*://outlook.office.com/*",
+    "*://outlook.live.com/*",
+    "*://outlook.office365.com/*",
+    "*//mail.google.com/*"],
   "action": {
     "default_popup": "html/popup.html",
     "default_icon": {
