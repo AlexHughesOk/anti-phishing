@@ -5,29 +5,29 @@
   "author": "Alexander D Hughes",
   "manifest_version": 3,
   "background": {
-    "service_worker": "js/background.js"
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "js": [ 
-        "jquery.min.js"
-      ],
+      "js": ["js/jquery-3.3.1.js"],
       "matches": [
+        "*://mail.google.com/*",
         "*://outlook.office.com/*",
         "*://outlook.live.com/*",
-        "*://outlook.office365.com/*",
-        "*//mail.google.com/*"
+        "*://outlook.office365.com/*"
       ]
     }
   ],
   "permissions": [
     "storage", 
     "activeTab", 
-    "scripting",
+    "scripting"],
+  "host_permissions": [
     "*://outlook.office.com/*",
     "*://outlook.live.com/*",
     "*://outlook.office365.com/*",
-    "*//mail.google.com/*"],
+    "*://mail.google.com/*"
+  ],
   "action": {
     "default_popup": "html/popup.html",
     "default_icon": {
