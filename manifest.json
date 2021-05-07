@@ -9,7 +9,10 @@
   },
   "content_scripts": [
     {
-      "js": ["js/jquery-3.3.1.js"],
+      "js": [
+        "js/jquery-3.3.1.js",
+        "content.js"
+      ],
       "matches": [
         "*://mail.google.com/*",
         "*://outlook.office.com/*",
