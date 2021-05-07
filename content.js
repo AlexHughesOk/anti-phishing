@@ -1,12 +1,21 @@
-var z = 0;
-
 var hosts = [];
+
+var intervalId = -1;
+
+//Removes Alert if clicked
+document.addEventListener('click', WindowClick);
+function WindowClick() {
+
+  RemoveAlert();
+  clearInterval(intervalId);
+  setTimeout(chk1, 1000);
+}
+
 
 for (i = 0; i < top.document.links.length; i++) {
     var host = top.document.links[i].hostname;
       host = host.toLowerCase();
 
-      // For Outlook Links
       if (host.search(/safelinks\.protection\.outlook\.com/i) >= 0) {
 
           host = top.document.links[i].href.replace(/https:\/\/\w*\.?safelinks\.protection\.outlook\.com\/\?url=/gmi, "");
@@ -23,14 +32,19 @@ for (i = 0; i < top.document.links.length; i++) {
     }
   }
 
-  console.log(hosts)
-  console.log(host.search)
+
+
+  
+  //console.log(top.document.links[31].hostname);
+
+
+
 
 // Shows the Alert
 function showAlert() {
 
     window.alert("Working");
-
+    console.log(top.document.links[31].hostname)
   }
 
 // Removes the Alert
