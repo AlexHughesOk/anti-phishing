@@ -29,9 +29,6 @@ function getAllLink(){
 window.alert(array1)
 
 
-t.m1.email.samsung.com
-
-
 
 
 
