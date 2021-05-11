@@ -1,4 +1,4 @@
-var hosts = [];
+// Comment code out CTRL+K+C, uncomment CTRL+K+U
 
 var intervalId = -1;
 
@@ -6,36 +6,31 @@ var intervalId = -1;
 document.addEventListener('click', WindowClick);
 function WindowClick() {
 
-  RemoveAlert();
-  clearInterval(intervalId);
-  setTimeout(chk1, 1000);
+  getAllLink()
 }
 
 
-for (i = 0; i < top.document.links.length; i++) {
-    var host = top.document.links[i].hostname;
-      host = host.toLowerCase();
 
-      if (host.search(/safelinks\.protection\.outlook\.com/i) >= 0) {
 
-          host = top.document.links[i].href.replace(/https:\/\/\w*\.?safelinks\.protection\.outlook\.com\/\?url=/gmi, "");
-          host = decodeURIComponent(host);
-          host = host.replace(/^https?:\/\//gmi, "");
-          host = host.replace(/^www\./gmi, "");
-          host = host.replace(/[\?\&\/].*/gmi, "");
-      }
+// https://stackoverflow.com/questions/27590366/how-to-get-all-links-in-a-page-by-classname-and-store 
 
-    host = host.replace(/^www\./gmi, "");
-
-    if (hosts.indexOf(host) == -1 && host.match(/\.[a-z]*$/)) {
-      hosts.push(host);
-    }
+function getAllLink(){
+  var class1 = document.getElementsByClassName('AO');
+  var array1 = [];
+  for(i=0;i<class1.length;i++){
+      var str = class1[i].getElementsByTagName('a')[0].href;
+      var res = str.split("?"); 
+      array1.push(res[0]);
   }
+  console.log(array1);
+  window.alert(array1)
+}
+
+window.alert(array1)
 
 
+t.m1.email.samsung.com
 
-  
-  //console.log(top.document.links[31].hostname);
 
 
 
@@ -44,10 +39,8 @@ for (i = 0; i < top.document.links.length; i++) {
 function showAlert() {
 
     window.alert("Working");
-    console.log(top.document.links[31].hostname)
   }
 
 // Removes the Alert
   function RemoveAlert() {
-    
   }
