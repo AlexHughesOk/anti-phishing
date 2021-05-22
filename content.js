@@ -9,11 +9,17 @@ function WindowClick() {
   getAllLink()
 }
 
+if(document.URL.indexOf("https://mail.google.com/") >= 0){ 
+  //Run functions on Gmail
+  getAllLink()
+  }
+else if(document.URL.indexOf("https://outlook.live.com/") >= 0) {
+  //Run functions on Outlook
+}
 
 
 
 // https://stackoverflow.com/questions/27590366/how-to-get-all-links-in-a-page-by-classname-and-store 
-
 function getAllLink(){
   var class1 = document.getElementsByClassName('AO');
   var array1 = [];
