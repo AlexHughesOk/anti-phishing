@@ -3,11 +3,11 @@
 // var intervalId = -1;
 
 //Removes Alert if clicked
-// document.addEventListener('click', WindowClick);
-// function WindowClick() {
+ document.addEventListener('click', WindowClick);
+ function WindowClick() {
 
-//   getAllLink()
-// }
+  gmailGetAllLinks()
+}
 
 if(document.URL.indexOf("https://mail.google.com/") >= 0){ 
   //Run functions on Gmail
@@ -20,24 +20,24 @@ else if(document.URL.indexOf("https://outlook.live.com/") >= 0) {
 }
 
 
-
-// https://stackoverflow.com/questions/27590366/how-to-get-all-links-in-a-page-by-classname-and-store 
 function gmailGetAllLinks(){
-  var classname = document.getElementsByClassName('AO');
-  var array1 = [];
-  for(i=0;i<classname.length;i++){
-      var str = classname[i].getElementsByTagName('a')[0].href;
-      var res = str.split("?"); 
-      array1.push(res[0]);
+  const links = Array.from(document.querySelectorAll(".a3s a")).map(link => {
+      const url = new URL(link.href);
+      url.search = '';
+      return url.toString(); 
+  })
 
-  }
-  //console.log(array1);
-  //window.alert(array1)
-  warningPopup()
+  
+  // Remove duplicates
+  const uniq = [...new Set(links)];
+  // window.alert(uniq);
+  return warningPopup(uniq);
 }
 
 
-function warningPopup () {
+
+function warningPopup (uniq) {
+
   var defaultCss = document.createElement('style');
   defaultCss.setAttribute('type', 'text/css');
   var css = '';
@@ -61,7 +61,8 @@ function warningPopup () {
   divAlert.style.fontSize = '12px';
 
   var phishingWebsites = document.createElement('div');
- // phishingWebsites.innerHTML = PHISHING VAR GOES HERE;
+  // Prints the Array of Links
+  phishingWebsites.innerHTML = uniq;
   divAlert.appendChild(phishingWebsites);
 
   //Cancel Button
@@ -72,11 +73,6 @@ function warningPopup () {
 }
 
 
-// Shows the Alert
-function showAlert() {
-
-    window.alert("Working");
-  }
 
 // Removes the Alert
   function RemoveAlert() {
