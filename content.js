@@ -1,6 +1,7 @@
 // Comment code out CTRL+K+C, uncomment CTRL+K+U
 
 // var intervalId = -1;
+const resourceDomain = 'https://raw.githubusercontent.com/AlexHughesOk/anti-phishing/ec315a39141d1c71de47fce640ceecf85433b677/json/trustedWebsites.json';
 
 //Removes Alert if clicked
 document.addEventListener('click', WindowClick);
@@ -29,8 +30,17 @@ function gmailGetAllLinks(){
  //removes duplicate links
  const uniq = [...new Set(links)];
  //window.alert(uniq);
- return warningPopup(uniq);
+
+// return warningPopup(uniq);
+return jsonCompare(uniq);
 }
+
+function jsonCompare(uniq){
+    console.log("test " + uniq);
+
+    
+}
+
 
 
 
@@ -59,7 +69,7 @@ function warningPopup (uniq) {
  divAlert.style.fontSize = '12px';
 
  var phishingWebsites = document.createElement('div');
- // Prints the Array of Links
+ // Prints the Array of Links - uniq
  phishingWebsites.innerHTML = uniq;
  divAlert.appendChild(phishingWebsites);
 
