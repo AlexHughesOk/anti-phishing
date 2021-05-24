@@ -46,7 +46,7 @@ function jsonCompare(uniq){
         if (this.readyState == 4 && this.status == 200) {
           var myArr = JSON.parse(this.responseText);
           //myFunction(myArr);
-          //PUT THE FUNCTION HERE
+          //FUNCTION IF STATEMENT 
           console.log(myArr)
           
         }
