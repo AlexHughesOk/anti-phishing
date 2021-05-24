@@ -1,7 +1,6 @@
 // Comment code out CTRL+K+C, uncomment CTRL+K+U
 
 // var intervalId = -1;
-const resourceDomain = 'https://raw.githubusercontent.com/AlexHughesOk/anti-phishing/ec315a39141d1c71de47fce640ceecf85433b677/json/trustedWebsites.json';
 
 //Removes Alert if clicked
 document.addEventListener('click', WindowClick);
@@ -24,25 +23,39 @@ else if(document.URL.indexOf("https://outlook.live.com/") >= 0) {
 function gmailGetAllLinks(){
  const links = Array.from(document.querySelectorAll(".a3s a")).map(link => {
      const url = new URL(link.href);
-     return url.hostname
-    
+     return url.hostname 
  })
+ 
  //removes duplicate links
  const uniq = [...new Set(links)];
  //window.alert(uniq);
 
-// return warningPopup(uniq);
+//return warningPopup(uniq);
 return jsonCompare(uniq);
 }
 
+
+
+
 function jsonCompare(uniq){
-    console.log("test " + uniq);
 
+    var xmlhttp = new XMLHttpRequest();
+    const url = "https://raw.githubusercontent.com/AlexHughesOk/anti-phishing/ec315a39141d1c71de47fce640ceecf85433b677/json/trustedWebsites.json"; 
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var myArr = JSON.parse(this.responseText);
+          //myFunction(myArr);
+          //PUT THE FUNCTION HERE
+          console.log(myArr)
+          
+        }
+      };
+      xmlhttp.open("GET", url, true);
+      xmlhttp.send();
     
+
 }
-
-
-
 
 function warningPopup (uniq) {
 
