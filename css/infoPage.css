@@ -480,4 +480,15 @@ Header {
         max-width: 380px;
         flex-grow: 1
     }
-    
+    .column {
+        float: left;
+        width: 50%;
+        padding: 5px;
+      }
+      
+      /* Clear floats after image containers */
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
