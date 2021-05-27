@@ -19,7 +19,6 @@ else if(document.URL.indexOf("https://outlook.live.com/") >= 0) {
  
 }
 
-
 function gmailGetAllLinks(){
  const links = Array.from(document.querySelectorAll(".a3s a")).map(link => {
      const url = new URL(link.href);
@@ -35,26 +34,31 @@ return jsonCompare(uniq);
 }
 
 
-
-
 function jsonCompare(uniq){
 
     var xmlhttp = new XMLHttpRequest();
-    const url = "https://raw.githubusercontent.com/AlexHughesOk/anti-phishing/ec315a39141d1c71de47fce640ceecf85433b677/json/trustedWebsites.json"; 
+    const urlJson = "https://raw.githubusercontent.com/AlexHughesOk/anti-phishing/ec315a39141d1c71de47fce640ceecf85433b677/json/trustedWebsites.json"; 
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           var myArr = JSON.parse(this.responseText);
           //myFunction(myArr);
-          //FUNCTION IF STATEMENT 
-          console.log(myArr)
+          //PUT THE FUNCTION HERE
+
+          //let matches = myArr.filter(x => uniq.includes(x));
+          let difference = myArr.filter(x => !uniq.includes(x))
+
+          //console.log(matches);
+          //window.alert(matches);
+          //console.log("differences" + difference);
+          //console.log(myArr)
+          //console.log(uniq)==(myArr);
           
         }
       };
-      xmlhttp.open("GET", url, true);
+      xmlhttp.open("GET", urlJson, true);
       xmlhttp.send();
     
-
 }
 
 function warningPopup (uniq) {
