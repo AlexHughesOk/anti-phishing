@@ -6,7 +6,7 @@
 document.addEventListener('click', WindowClick);
 function WindowClick() {
 
- gmailGetAllLinks()
+ outlookGetAllLinks()
 }
 
 if(document.URL.indexOf("https://mail.google.com/") >= 0){ 
@@ -16,9 +16,11 @@ if(document.URL.indexOf("https://mail.google.com/") >= 0){
  }
 else if(document.URL.indexOf("https://outlook.live.com/") >= 0) {
  //Run functions on Outlook
+ outlookGetAllLinks()
  
 }
 
+//Function to get all the links from Gmail
 function gmailGetAllLinks(){
  const links = Array.from(document.querySelectorAll(".a3s a")).map(link => {
      const url = new URL(link.href);
@@ -32,6 +34,20 @@ function gmailGetAllLinks(){
 //return warningPopup(uniq);
 return jsonCompare(uniq);
 }
+
+//Function to get all the links from Outlook
+function outlookGetAllLinks(){
+  const links = Array.from(document.querySelectorAll(".wide-content-host a")).map(link => {
+      const url = new URL(link.href);
+      return url.hostname 
+  })
+   //removes duplicate links
+ const uniq = [...new Set(links)];
+ //window.alert(uniq);
+
+//return warningPopup(uniq);
+window.alert(uniq)
+ }
 
 
 function jsonCompare(uniq){
