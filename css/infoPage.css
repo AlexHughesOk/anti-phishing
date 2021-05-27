@@ -110,3 +110,18 @@ Header {
         clear: both;
         display: table;
       }
+
+      .userguide {
+        margin-left: 17.1%;
+      }
+
+      .textforuser{
+          margin-left: 50.4%;
+      }
+      .installList {
+        white-space: nowrap;
+        text-align: initial;
+      }
+      .Installation {
+          padding-bottom: 10%;
+      }
