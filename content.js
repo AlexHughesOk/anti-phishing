@@ -7,6 +7,7 @@ document.addEventListener('click', WindowClick);
 function WindowClick() {
 
  outlookGetAllLinks()
+ gmailGetAllLinks()
 }
 
 if(document.URL.indexOf("https://mail.google.com/") >= 0){ 
@@ -46,7 +47,7 @@ function outlookGetAllLinks(){
  //window.alert(uniq);
 
 //return warningPopup(uniq);
-window.alert(uniq)
+return jsonCompare(uniq);
  }
 
 
@@ -59,16 +60,12 @@ function jsonCompare(uniq){
         if (this.readyState == 4 && this.status == 200) {
           var myArr = JSON.parse(this.responseText);
           //myFunction(myArr);
-          //PUT THE FUNCTION HERE
 
           //let matches = myArr.filter(x => uniq.includes(x));
-          let difference = myArr.filter(x => !uniq.includes(x))
+          let difference = uniq.filter(x => !myArr.includes(x))
+          return warningPopup(difference);
+          
 
-          //console.log(matches);
-          //window.alert(matches);
-          //console.log("differences" + difference);
-          //console.log(myArr)
-          //console.log(uniq)==(myArr);
           
         }
       };
@@ -77,7 +74,7 @@ function jsonCompare(uniq){
     
 }
 
-function warningPopup (uniq) {
+function warningPopup (difference) {
 
  var defaultCss = document.createElement('style');
  defaultCss.setAttribute('type', 'text/css');
@@ -103,7 +100,8 @@ function warningPopup (uniq) {
 
  var phishingWebsites = document.createElement('div');
  // Prints the Array of Links - uniq
- phishingWebsites.innerHTML = uniq;
+ 
+ phishingWebsites.innerHTML = difference;
  divAlert.appendChild(phishingWebsites);
 
  //Cancel Button
