@@ -30,17 +30,19 @@ function gmailGetAllLinks() {
     })
 
     //removes duplicate links
-    const uniq = [...new Set(links)];
+    var uniq = [...new Set(links)];
     //window.alert(uniq);
+    
 
     // IF THE VALUE IS UNDEFINED, THE VALUE IS REMOVED!
     uniq.forEach(item => {
 
         if (typeof item === "undefined" || item === "") {
-            const index = uniq.indexOf(item)
-            uniq.splice(index, 1)  
-        }
-
+            const index = uniq.indexOf(item);
+            uniq.splice(index, 1);
+        } 
+        // REMOVES WWW. from Domain links!
+    uniq = uniq.map(x => x.replace("www.",""));
     })
 
     //return warningPopup(uniq);
@@ -59,7 +61,7 @@ function outlookGetAllLinks() {
     })
 
     //removes duplicate links
-    const uniq = [...new Set(links)];
+    var uniq = [...new Set(links)];
 
     // IF THE VALUE IS UNDEFINED, THE VALUE IS REMOVED!
     uniq.forEach(item => {
@@ -68,8 +70,13 @@ function outlookGetAllLinks() {
       const index = uniq.indexOf(item)
       uniq.splice(index, 1)  
   }
+    // REMOVES WWW. from Domain links!
+    uniq = uniq.map(x => x.replace("www.",""));
+        
 
 })
+    
+
     //window.alert(uniq);
     //return warningPopup(uniq);
     return jsonCompare(uniq);
@@ -89,7 +96,6 @@ function jsonCompare(uniq) {
 
             //Created array to hold all the differences.
             const differences = [];
-            const www = "www.";
             // Goes through the whole array of 'uniq' and put it into stringItem.
             uniq.forEach(stringItem => {
                 //console.log(jsonList.indexOf(stringItem))
