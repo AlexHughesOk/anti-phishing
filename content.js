@@ -36,11 +36,10 @@ function gmailGetAllLinks() {
     // IF THE VALUE IS UNDEFINED, THE VALUE IS REMOVED!
     uniq.forEach(item => {
 
-        if (typeof item === "undefined") {
-          const index = uniq.indexOf(item)
-          uniq.splice(index, 1)
-        
-      }
+        if (typeof item === "undefined" || item === "") {
+            const index = uniq.indexOf(item)
+            uniq.splice(index, 1)  
+        }
 
     })
 
@@ -71,8 +70,6 @@ function outlookGetAllLinks() {
   }
 
 })
-
-
     //window.alert(uniq);
     //return warningPopup(uniq);
     return jsonCompare(uniq);
@@ -89,14 +86,17 @@ function jsonCompare(uniq) {
 
             // uniq = Website links from emails.
             // jsonList = JSON List FULL of Whitelisted websites.
+
             //Created array to hold all the differences.
             const differences = [];
+            const www = "www.";
             // Goes through the whole array of 'uniq' and put it into stringItem.
             uniq.forEach(stringItem => {
                 //console.log(jsonList.indexOf(stringItem))
                 // Checks each string of uniq against jsonList & will only push if there's no match. 
                 if (jsonList.indexOf(stringItem) === -1 && exclusion.indexOf(stringItem) === -1)
                     differences.push(stringItem);
+                                  
             });
             if (differences.length > 0)
                 return warningPopup(differences);
