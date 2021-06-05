@@ -137,7 +137,7 @@ function warningPopup(differences) {
     divAlert.style.background = 'rgba(245, 245, 245)';;
     divAlert.style.maxHeight = '500px';
     divAlert.style.maxWidth = '500px';
-    divAlert.style.height = '200px';
+    divAlert.style.height = '207px';
     divAlert.style.width = '260px';
 
     //HEADER
@@ -146,6 +146,8 @@ function warningPopup(differences) {
     divAlert.appendChild(header);
     header.id = 'div-header';
     header.style.background = 'red';
+    header.style.borderRadius = '5px';
+    header.style.zIndex = '101';
 
     var img = document.createElement('img');
     img.src = 'https://raw.githubusercontent.com/AlexHughesOk/anti-phishing/main/assets/Logo48.png';
