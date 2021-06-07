@@ -92,7 +92,7 @@ function jsonCompare(uniq) {
             var jsonList = JSON.parse(this.responseText);
 
             // uniq = Website links from emails.
-            // jsonList = JSON List FULL of Whitelisted websites.
+            // jsonList = ARRAY - JSON List FULL of Whitelisted websites.
 
             //Created array to hold all the differences.
             const differences = [];
