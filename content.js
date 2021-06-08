@@ -32,7 +32,7 @@ function gmailGetAllLinks() {
     //removes duplicate links
     var uniq = [...new Set(links)];
     //window.alert(uniq);
-    
+
 
     // IF THE VALUE IS UNDEFINED, THE VALUE IS REMOVED!
     uniq.forEach(item => {
@@ -40,9 +40,9 @@ function gmailGetAllLinks() {
         if (typeof item === "undefined" || item === "") {
             const index = uniq.indexOf(item);
             uniq.splice(index, 1);
-        } 
+        }
         // REMOVES WWW. from Domain links!
-    uniq = uniq.map(x => x.replace("www.",""));
+        uniq = uniq.map(x => x.replace("www.", ""));
     })
 
     //return warningPopup(uniq);
@@ -57,7 +57,7 @@ function outlookGetAllLinks() {
             const url = new URL(link.href);
             return url.hostname
         }
-        
+
     })
 
     //removes duplicate links
@@ -66,16 +66,16 @@ function outlookGetAllLinks() {
     // IF THE VALUE IS UNDEFINED, THE VALUE IS REMOVED!
     uniq.forEach(item => {
 
-    if (typeof item === "undefined" || item === "") {
-      const index = uniq.indexOf(item)
-      uniq.splice(index, 1)  
-  }
-    // REMOVES WWW. from Domain links!
-    uniq = uniq.map(x => x.replace("www.",""));
-        
+        if (typeof item === "undefined" || item === "") {
+            const index = uniq.indexOf(item)
+            uniq.splice(index, 1)
+        }
+        // REMOVES WWW. from Domain links!
+        uniq = uniq.map(x => x.replace("www.", ""));
 
-})
-    
+
+    })
+
 
     //window.alert(uniq);
     //return warningPopup(uniq);
@@ -102,11 +102,11 @@ function jsonCompare(uniq) {
                 // Checks each string of uniq against jsonList & will only push if there's no match. 
                 if (jsonList.indexOf(stringItem) === -1 && exclusion.indexOf(stringItem) === -1)
                     differences.push(stringItem);
-                                  
+
             });
             if (differences.length > 0)
                 return warningPopup(differences);
-                
+
 
         }
     };
@@ -185,10 +185,10 @@ function warningPopup(differences) {
     phishingLinks.style.fontSize = '13px';
     phishingLinks.style.overflowY = 'Scroll'
     console.log(differences.length)
-    for (var i=0; i<differences.length; i++){
+    for (var i = 0; i < differences.length; i++) {
         phishingLinks.innerHTML += differences[i] + "<br>";
     }
-    
+
     //FOOTER
 
     var footer = document.createElement('div');

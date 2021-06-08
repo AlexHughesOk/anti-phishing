@@ -22,9 +22,10 @@
     }
   ],
   "permissions": [
-    "storage", 
-    "activeTab", 
-    "scripting"],
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
   "host_permissions": [
     "*://outlook.office.com/*",
     "*://outlook.live.com/*",
