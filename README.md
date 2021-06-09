@@ -1,6 +1,6 @@
 # Fishy Phish - Anti-Phishing Chrome Extension
 <p align="center">
-<a href="https://github.com/Snailclimb/JavaGuide" target="_blank">
+<a target="_blank">
 	<img src="https://raw.githubusercontent.com/AlexHughesOk/anti-phishing/main/assets/Logo256.png" width=""/>
 </a>
 </p>
