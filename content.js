@@ -70,9 +70,10 @@ function outlookGetAllLinks() {
         if (typeof item === "undefined" || item === "") {
             const index = uniq.indexOf(item)
             uniq.splice(index, 1)
-        }
-        // REMOVES WWW. from Domain links!
+             // REMOVES WWW. from Domain links!
         uniq = uniq.map(x => x.replace("www.", ""));
+        }
+       
 
 
     })
